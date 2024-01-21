@@ -10,13 +10,13 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     min-height: 100vh;
     background: #f5f8ff;
 }
 
 .container {
-    margin: 0 40px;
+    margin: 20px 40px;
     max-width: 600px;
     display: flex;
     flex-direction: column;
