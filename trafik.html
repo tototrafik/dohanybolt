@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>trafikFAQ</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBar = document.getElementById("searchBar");
+            const tabs = document.querySelectorAll(".tab");
+
+            searchBar.addEventListener("input", function () {
+                const searchTerm = searchBar.value.toLowerCase();
+
+                tabs.forEach(function (tab) {
+                    const tabText = tab.textContent.toLowerCase();
+
+                    if (tabText.includes(searchTerm)) {
+                        tab.style.display = "block";
+                    } else {
+                        tab.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="searchBar" placeholder="Keresés...">
+        <h1>Gyakran Ismételt Kérdések?</h1>
+        <div class="tab">
+            <input type="radio" name="acc" id="acc1">
+            <label for="acc1">
+                <h2>01</h2>
+                <h3>Kit kell hívni, ha elromlik a pénztárgép?</h3>
+            </label>
+            <div class="tartalom"><p>Kocsi Kerék +3630111111</p></div>
+        </div>
+        <div class="tab">
+            <input type="radio" name="acc" id="acc2">
+            <label for="acc2">
+                <h2>02</h2>
+                <h3>Hogyan kell kihelyezni az xy termékeket?</h3>
+            </label>
+            <div class="tartalom"><p>A cigiket a polcra,80cm+ felé stb.</p></div>
+        </div>
+        <div class="tab">
+            <input type="radio" name="acc" id="acc3">
+            <label for="acc3">
+                <h2>03</h2>
+                <h3>Harmadik kérdés?</h3>
+            </label>
+            <div class="tartalom"><p>Válasz a harmadik kérdésre</p></div>
+        </div>
+    </div>
+
+</body>
+</html>
