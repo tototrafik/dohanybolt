@@ -6,8 +6,22 @@
     <link rel="stylesheet" href="style.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const searchBar = document.getElementById("searchBar");
+            const regionDropdown = document.getElementById("regionDropdown");
+            const regionOptions = document.getElementById("regionOptions");
             const tabs = document.querySelectorAll(".tab");
+
+            regionDropdown.addEventListener("click", function () {
+                regionOptions.style.display = (regionOptions.style.display === 'block') ? 'none' : 'block';
+            });
+
+            regionOptions.addEventListener("click", function (event) {
+                if (event.target.classList.contains('region-option')) {
+                    const regionId = event.target.getAttribute('data-region-id');
+                    window.location.href = `region${regionId}.html`; // Change the URL according to your file structure
+                }
+            });
+            
+            const searchBar = document.getElementById("searchBar");
 
             searchBar.addEventListener("input", function () {
                 const searchTerm = searchBar.value.toLowerCase();
@@ -29,6 +43,18 @@
     <div class="container">
         <input type="text" id="searchBar" placeholder="Keresés...">
         <h1>Gyakran Ismételt Kérdések?</h1>
+      <!-- Region Selector Dropdown -->
+        <div class="region-selector">
+            <div class="region-dropdown" id="regionDropdown">Válassz régiót</div>
+            <div class="region-options" id="regionOptions">
+                <div class="region-option" data-region-id="1">Csongrád-Csanád megye</div>
+                <div class="region-option" data-region-id="2">Bács-Kiskun megye</div>
+                <div class="region-option" data-region-id="3">Jász-Nagykun-Szolnok megye</div>
+                <div class="region-option" data-region-id="4">Pest megye</div>
+                <div class="region-option" data-region-id="5">Győr-Moson-Sopron megye</div>
+            </div>
+        </div>
+
         <div class="tab">
             <input type="radio" name="acc" id="acc1">
             <label for="acc1">
